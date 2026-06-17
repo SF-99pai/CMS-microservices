@@ -1,0 +1,14 @@
+cd student-service
+python -m uvicorn app.main:app --reload --port 8001
+
+cd teacher-service
+python -m uvicorn app.main:app --reload --port 8002
+
+cd department-service
+python -m uvicorn app.main:app --reload --port 8003
+
+cd auth-service
+python -m uvicorn app.main:app --reload --port 8004
+
+cd API-gateway
+python -m uvicorn app.main:app --reload --port 8000
