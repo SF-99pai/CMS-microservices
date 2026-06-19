@@ -1,31 +1,29 @@
-version: '3.9'
+version: "3.9"
 
 services:
 
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "8000:8000"
+
   student-service:
     build: ./student-service
-    container_name: student-service
     ports:
       - "8001:8001"
 
   teacher-service:
     build: ./teacher-service
-    container_name: teacher-service
     ports:
       - "8002:8002"
 
   department-service:
     build: ./department-service
-    container_name: department-service
     ports:
       - "8003:8003"
 
-  api-gateway:
-    build: ./api-gateway
-    container_name: api-gateway
-    ports:
-      - "8000:8000"
-    depends_on:
-      - student-service
-      - teacher-service
-      - department-service
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: P00jitha*19
